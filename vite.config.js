@@ -10,11 +10,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: 'resources/js/app.js',
-            refresh: [
-                'resources/routes/**',
-                'routes/**',
-                'resources/views/**',
-            ],
+            refresh: true,
         }),
         vue({
             template: {
