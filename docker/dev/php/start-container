@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+if [ ! -z "$WWWUSER" ]; then
+    usermod -u $WWWUSER portfolio
+fi
+
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+chmod -R ugo+rw /.composer
+
+if [ $# -gt 0 ]; then
+    exec gosu $WWWUSER "$@"
+else
+    exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+fi
+
+# If vendor folder is not present, install dependencies
+if [ ! -d /var/www/html/vendor ]; then
+    composer install --no-interaction --no-progress --no-suggest --optimize-autoloader --no-scripts
+fi
+
+# If node_modules folder is not present, install dependencies
+if [ ! -d /var/www/html/node_modules ]; then
+    npm install
+fi
