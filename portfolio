@@ -148,11 +148,11 @@ export PORTFOLIO_SHARE_SUBDOMAIN=${PORTFOLIO_SHARE_SUBDOMAIN:-""}
 export PORTFOLIO_SHARE_DOMAIN=${PORTFOLIO_SHARE_DOMAIN:-"$PORTFOLIO_SHARE_SERVER_HOST"}
 export PORTFOLIO_SHARE_SERVER=${PORTFOLIO_SHARE_SERVER:-""}
 
-# Function that outputs Sail is not running...
+# Function that outputs Portfolio is not running...
 function portfolio_is_not_running {
-    echo "${BOLD}Sail is not running.${NC}" >&2
+    echo "${BOLD}Portfolio is not running.${NC}" >&2
     echo "" >&2
-    echo "${BOLD}You may Sail using the following commands:${NC} './portfolio up' or './portfolio up -d'" >&2
+    echo "${BOLD}You may Portfolio using the following commands:${NC} './portfolio up' or './portfolio up -d'" >&2
 
     exit 1
 }
@@ -190,9 +190,9 @@ if [ -z "$PORTFOLIO_SKIP_CHECKS" ]; then
         exit 1
     fi
 
-    # Determine if Sail is currently up...
+    # Determine if Portfolio is currently up...
     if "${DOCKER_COMPOSE[@]}" ps "$APP_SERVICE" 2>&1 | grep 'Exit\|exited'; then
-        echo "${BOLD}Shutting down old Sail processes...${NC}" >&2
+        echo "${BOLD}Shutting down old processes...${NC}" >&2
 
         "${DOCKER_COMPOSE[@]}" down > /dev/null 2>&1
 

@@ -6,9 +6,9 @@ New portfolio made from scratch using Laravel Inertia
 ## Local Development
 
 This project uses
-[Docker Compose](https://laravel.com/docs/sail) to manage
+[Docker Compose](https://docker.com) to manage
 its local development stack. For more detailed usage instructions take a look at
-the [official documentation](https://laravel.com/docs/sail).
+the [official documentation](https://docker.com).
 
 ### Links
 
@@ -22,7 +22,7 @@ the [official documentation](https://laravel.com/docs/sail).
 ### Start the development server
 
 ```shell
-./vendor/bin/sail up
+./portfolio up
 ```
 
 You can also use the `-d` option, to start the server in
@@ -32,11 +32,11 @@ terminal for other things.
 ### Build frontend assets
 
 ```shell
-./vendor/bin/sail npm watch
+./portfolio npm watch
 ```
 
 ### Run Tests
 
 ```shell
-./vendor/bin/sail test
+./portfolio test
 ```
